@@ -5,12 +5,13 @@
 
 using namespace std;
 
-#include "Reader.h";
+#include "Reader.h"
+#include "Sequence.h"
 
 int main(int argc, char *argv[]){
     Reader* myReader = new Reader();
     char* myFile;
-    Reader::Sequence* sequence;
+    Sequence* sequence;
     if (argc > 1) {
         myFile = argv[1];
         sequence = myReader->readNewFile(myFile);

@@ -3,7 +3,6 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
-#include <iostream>
 
 Reader::Reader(string filename) {
     
@@ -22,7 +21,7 @@ Reader::Reader(string filename) {
     
 }
 
-Reader::Sequence* Reader::readNewFile(string filename){
+Sequence* Reader::readNewFile(string filename){
     
     Sequence* fileSequence = new Sequence;
     fileSequence->value.clear();
@@ -113,7 +112,7 @@ int Reader::getProgress(){
     return progress;
 }
 
-const Reader::Sequence* Reader::seq(string filename){
+const Sequence* Reader::seq(string filename){
     return genome = readNewFile(filename);
 }
 

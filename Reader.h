@@ -1,21 +1,18 @@
-#ifndef READER
-#define READER
+#ifndef SKITTLE_READER
+#define SKITTLE_READER
 
 #include <stdlib.h>
 #include <string>
+
+#include "Sequence.h"
 
 using namespace std;
 
 class Reader {    
     
 public:
-    struct Sequence  {
-        string value;
-        string name;
-    }; 
 
     Reader(string filename = "\0");
-    //~Reader();
     
     const Sequence* seq(string filename = "\0");
     static const int BlockSize = 5000000;
@@ -25,7 +22,7 @@ public:
     bool is_complete();
     void setComplete();
     void setIncomplete();
-    
+        
     int getProgress();
     void setProgress(int);
     
