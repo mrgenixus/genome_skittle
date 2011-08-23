@@ -1,24 +1,27 @@
 #include "Color.h"
+#include <algorithm>
 
-bool Color::operator == (color other)
+using namespace std;
+
+bool Color::operator == (const Color other)
 {
     return ( (r == other.r) && (g == other.g) && (b == other.b) );
 }
-color Color::operator + (color other)
+Color Color::operator + (const Color other)
 {
-    return color( min(255, r + other.r), min(255, g + other.g), min(255, b + other.b) );
+    return Color( min(255, r + other.r), min(255, g + other.g), min(255, b + other.b) );
 }
-color Color::operator - (color other)
+Color Color::operator - (const Color other)
 {
-    return color( max(0,(r - other.r)), max(0,(g - other.g)), max(0,(b - other.b)) );
+    return Color( max(0,(r - other.r)), max(0,(g - other.g)), max(0,(b - other.b)) );
 }
-color Color::operator / (int div)
+Color Color::operator / (const int div)
 {
-    return color( (int)(float(r)/div+.5), (int)(float(g)/div+.5), (int)(float(b)/div+.5) );
+    return Color( (int)(float(r)/div+.5), (int)(float(g)/div+.5), (int)(float(b)/div+.5) );
 }
-color Color::operator * (float mul)
+Color Color::operator * (const float mul)
 {
-    return color( min(255, (int)(float(r)*mul+.5)), min(255, (int)(float(g)*mul+.5)), min(255, (int)(float(b)*mul+.5)) );
+    return Color( min(255, (int)(float(r)*mul+.5)), min(255, (int)(float(g)*mul+.5)), min(255, (int)(float(b)*mul+.5)) );
 }
 int Color::lightness()
 {

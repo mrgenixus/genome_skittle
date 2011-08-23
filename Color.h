@@ -13,16 +13,16 @@ public:
     void setBlue(int b);
     int getBlue();
     
-    color operator == (const color other);
-    color operator + (const color other);
-    color operator - (const color other);
-    color operator / (const color other);
-    color operator * (const color other);
+    bool operator == (const Color);
+    Color operator + (const Color);
+    Color operator - (const Color);
+    Color operator / (const int);
+    Color operator * (const float);
     int lightness();
     
 private:
     int r;
     int g;
     int b;
-}
+};
 #endif
