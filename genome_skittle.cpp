@@ -2,19 +2,22 @@
 #include <stdlib.h>
 #include <iostream>
 #include <vector>
+#include <string>
 
 using namespace std;
 
 #include "Reader.h"
-#include "Sequence.h"
 
 int main(int argc, char *argv[]){
-    Reader* myReader = new Reader();
-    char* myFile;
-    Sequence* sequence;
+
+    string sequence;
     if (argc > 1) {
-        myFile = argv[1];
-        sequence = myReader->readNewFile(myFile);
-        cout << sequence->name << "(" << sequence->value.size() << "): " << sequence->value << endl;
+        string filename = argv[1];
+        Reader *myreader = new Reader(filename);
+
+        while (!myreader->eof()) {
+            *myreader >> sequence;
+        }
+        cout << sequence;
     }
 }

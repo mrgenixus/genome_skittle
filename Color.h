@@ -4,13 +4,13 @@
 class Color {
 
 public:
-    Color(int r, int g, int b);
+    Color(int, int, int);
     
-    void setRed(int r);
+    void setRed(int);
     int getRed();
-    void setGreen(int g);
+    void setGreen(int);
     int getGreen();
-    void setBlue(int b);
+    void setBlue(int);
     int getBlue();
     
     bool operator == (const Color);
