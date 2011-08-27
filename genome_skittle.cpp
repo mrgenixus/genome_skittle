@@ -15,9 +15,8 @@ int main(int argc, char *argv[]){
         string filename = argv[1];
         Reader *myreader = new Reader(filename);
 
-        while (!myreader->eof()) {
-            *myreader >> sequence;
-        }
-        cout << sequence;
+        while (!myreader->eof()) *myreader >> sequence;
+        
+        cout <<"(" << sequence.size() << ")" << sequence << endl;
     }
 }
