@@ -9,6 +9,17 @@ using namespace std;
 
 
 class Interpreter {
+
+protected:
+    virtual void calculate();
+    vector<Color>* pxList;
+    
+    string* seq;
+    
+    int cached_width;
+    int cached_start;
+    int cached_scale;
+    int cached_display_size;
     
 public:
 
@@ -45,19 +56,10 @@ public:
     //vector accessor (efficient/immutable)
     const vector<Color>* getPx();
     
-    //vector accessor (innefficient/Mutable copy);
+    //vector accessor (innefficient/Mutable copy); //we should probably not allow this: it copies a ton of memory.
     vector<Color> copyPX();
     
-protected:
-    virtual void calculate();
-    vector<Color>* pxList;
-    
-    string* seq;
-    
-    int cached_width;
-    int cached_start;
-    int cached_scale;
-    int cached_display_size;
+
     
 };
 

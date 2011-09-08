@@ -6,27 +6,31 @@
 
 using namespace std;
 
-struct Tile {
-    int width_;
-    int height_;
-    vector<unsigned char> data_;
-};
+class Interpreter;
 
 class Renderer {
-
+    
     int width_;
     int height_;
-    vector< vector<Tile> > canvas_;
-    vector<Color> colors_;
-    bool useTextures_;
-    void createEmptyTiles(int canvas_width, int canvas_height, int max_size);
+    bool enableTextures_;
+    Interpreter* colors_;
+
+protected:     
+    virtual bool refresh();
 
 public:
-    Renderer();
-    Renderer(vector<Color> pixels, int width);
-    Renderer(vector<Color> pixels, int width, int max_size);
-    ~Renderer();
+    //initialization;
+    Renderer(Interpreter* );
+    bool rebind(Interpreter* );
+    
+    //information
+    bool texturesEnabled(){ return enableTextures_; };
+    
+    //action
+    bool render();
+    
     static const int maxSaneWidth = 4000;
+    
 };
 
 #endif
