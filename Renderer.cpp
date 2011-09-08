@@ -21,7 +21,7 @@ Renderer::Renderer(Interpreter* abstractGraph){
 
 bool Renderer::rebind(Interpreter* abstractGraph){
     if (abstractGraph != colors_){
-        colors = abstractGraph;
+        colors_ = abstractGraph;
         return true;
     }
     
@@ -30,10 +30,6 @@ bool Renderer::rebind(Interpreter* abstractGraph){
 
 bool Renderer::refresh(){
     return false;
-}
-
-int Renderer::getMaxTextureSize(){
-    return 0;
 }
 
 bool Renderer::render(){
