@@ -10,12 +10,12 @@ class Interpreter;
 
 class Renderer {
     
+
+protected:     
     int width_;
     int height_;
     bool enableTextures_;
     Interpreter* colors_;
-
-protected:     
     virtual bool refresh();
 
 public:

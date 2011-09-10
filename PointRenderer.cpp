@@ -5,20 +5,14 @@
 
 // main constructor
 // should be called if your glWidget supports textures
-/**
- * Renderer should setup a graph based on a colorlist and some other 
- * details.  We're kindof going to assume everyone else has either done 
- * their job or can live with the consequences.
- * 
- * 
- **/
-
 PointRenderer::PointRenderer(Interpreter* abstractGraph) :
-    Renderer::Renderer(abstractGraph) {
+    Renderer::Renderer(abstractGraph) 
+{
+    
 }
 
 
-bool Renderer::refresh(){
+bool PointRenderer::refresh(){
     //draw some points based on colors_ ... I dunno, just some points, OK?
     return false;
 }

@@ -22,8 +22,9 @@ class TextureRenderer : public Renderer {
     typedef vector< vector<Tile> > tile_matrix;
     tile_matrix canvas_;
     
-    void createEmptyTiles(int canvas_width, int canvas_height, int max_size);
-    
+    void createEmptyTiles(int canvas_width, int canvas_height);
+    GLuint loadTexture(Tile&);    
+
     //This will require a GL call:
     int getMaxTextureSize();
     

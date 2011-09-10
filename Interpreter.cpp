@@ -39,7 +39,10 @@ size_t Interpreter::size(){
 }
 
 //index accessors
-const Color Interpreter::operator[] (int index) { return getPxAt(index); };
+const Color Interpreter::operator[] (int index) { 
+	return getPxAt(index); 
+};
+
 const Color Interpreter::at(int index){ return getPxAt(index); };
 const Color Interpreter::getPxAt(int index){
     if (index < int(pxList->size())) {

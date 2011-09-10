@@ -11,7 +11,7 @@ class Interpreter;
 
 class PointRenderer : public Renderer {
 
-private:     
+protected:     
     bool refresh();
 
 public:

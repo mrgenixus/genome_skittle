@@ -24,8 +24,8 @@ bool TextureRenderer::refresh(){
     //~ for(int i = 0; i <= width; ++i)
         //~ pixels.push_back( Color(128,128,128) );
 
-    width_ = colors->getWith();
-    height_ = colors->getPx()->size() / width_;
+    width_ = colors_->getWidth();
+    height_ = colors_->getPx()->size() / width_;
 
     if(enableTextures_)
     {
@@ -34,13 +34,13 @@ bool TextureRenderer::refresh(){
         canvas_width = min((maxSaneWidth / max_size + 1),canvas_width);
 
         int canvas_height = height_ / max_size + 1;
-        createEmptyTiles(canvas_width, canvas_height, max_size);
+        createEmptyTiles(canvas_width, canvas_height);
 
-        vector<Color>* pixels = colors->getPx();
+        const vector<Color>* pixels = colors_->getPx();
         for(vector<Color>::size_type i = 0; i < pixels->size(); i++)
         {
             //this is specifically using the 'operator [] (int)' method defined by Interpreter.
-            Color c1 = colors[i];
+            Color c1 = colors_->getPxAt(i);
 
             tile_matrix::size_type x = (i % width_) / max_size; //(horizontal Index)
             tile_matrix::size_type y = (i / width_) / max_size; //(vertical Index)
@@ -53,15 +53,16 @@ bool TextureRenderer::refresh(){
             current.push_back(c1.getBlue());
         }
         
-        for(unsigned int x = 0; x < canvas.size(); ++x)
+        for(unsigned int x = 0; x < canvas_.size(); ++x)
         {
-            for(unsigned int y = 0; y < canvas[x].size(); ++y)
+            for(unsigned int y = 0; y < canvas_[x].size(); ++y)
             {
-                loadTexture(canvas[x][y]);//tex_ids.push_back(
-                canvas[x][y].data.clear();//the data has been loaded into the graphics card
+                loadTexture(canvas_[x][y]);//tex_ids.push_back(
+                canvas_[x][y].data_.clear();//the data has been loaded into the graphics card
             }
         }
     }
+    return true;
 }
 
 void TextureRenderer::createEmptyTiles(int canvas_width, int canvas_height)
@@ -87,17 +88,17 @@ TextureRenderer::~TextureRenderer()
             canvas_[x][y].data_.clear();//the data has been loaded into the graphics card
 }
 
-GLuint TextureRenderer::loadTexture(textureTile& tile)
+GLuint TextureRenderer::loadTexture(Tile& tile)
 {
 	glGenTextures( 1, &tile.tex_id );//TODO: could we store this in tile?
-    glBindTexture (GL_TEXTURE_2D, tex_id);
+    glBindTexture (GL_TEXTURE_2D, tile.tex_id);
     glPixelStorei (GL_UNPACK_ALIGNMENT, 1);
     glTexParameteri (GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
     glTexParameteri (GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);
     glTexParameteri (GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);//GL_NEAREST
     glTexParameteri (GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST); 
     glTexEnvf (GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);               
-    glTexImage2D (GL_TEXTURE_2D, 0, GL_RGB, tile.width, tile.height, 0, GL_RGB, GL_UNSIGNED_BYTE, &tile.data[0]);
+    glTexImage2D (GL_TEXTURE_2D, 0, GL_RGB, tile.width_, tile.height_, 0, GL_RGB, GL_UNSIGNED_BYTE, &tile.data_[0]);
     
     return tile.tex_id;
 }
