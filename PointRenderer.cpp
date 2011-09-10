@@ -1,4 +1,4 @@
-#include "PointerRenderer.h"
+#include "PointRenderer.h"
 #include "Interpreter.h"
 #include "Color.h"
 #include <stdlib.h>
@@ -13,8 +13,8 @@
  * 
  **/
 
-PointRenderer::PointRenderer(Interpreter* abstractGraph){
-    Renderer::Renderer();
+PointRenderer::PointRenderer(Interpreter* abstractGraph) :
+    Renderer::Renderer(abstractGraph) {
 }
 
 

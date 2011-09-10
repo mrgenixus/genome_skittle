@@ -2,6 +2,7 @@
 #define SKITTLE_TEXTURE_RENDERER
 
 #include <vector>
+#include <QtOpenGL>
 #include "Color.h"
 #include "Renderer.h"
 

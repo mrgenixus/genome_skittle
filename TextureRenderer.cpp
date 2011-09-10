@@ -1,7 +1,7 @@
 #include "TextureRenderer.h"
 #include "Interpreter.h"
 #include "Color.h"
-#include <QtOpenGL/QGLWidget>
+#include <QtOpenGL>
 #include <stdlib.h>
 
 /**
@@ -11,8 +11,8 @@
  * 
  **/
 
-TextureRenderer::TextureRenderer(Interpreter* abstractGraph){
-    Renderer::Renderer(abstractGraph);
+TextureRenderer::TextureRenderer(Interpreter* abstractGraph) :
+    Renderer::Renderer(abstractGraph) {
     enableTextures_ = getMaxTextureSize() > 0;
 }
 
