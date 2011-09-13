@@ -2,6 +2,7 @@
 #include <algorithm>
 
 using namespace std;
+using namespace skittle;
 
 Color::Color(int red, int green, int blue) {
     r = red; g = green; b = blue;

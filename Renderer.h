@@ -4,7 +4,7 @@
 #include <vector>
 #include "Color.h"
 
-using namespace std;
+namespace skittle {
 
 class Interpreter;
 
@@ -32,5 +32,7 @@ public:
     static const int maxSaneWidth = 4000;
     
 };
+
+}
 
 #endif

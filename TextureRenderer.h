@@ -6,7 +6,7 @@
 #include "Color.h"
 #include "Renderer.h"
 
-using namespace std;
+namespace skittle {
 
 class Interpreter;
 
@@ -16,10 +16,10 @@ class TextureRenderer : public Renderer {
         GLuint tex_id;
         int width_;
         int height_;
-        vector<unsigned char> data_;
+        std::vector<unsigned char> data_;
     };    
     
-    typedef vector< vector<Tile> > tile_matrix;
+    typedef std::vector< std::vector<Tile> > tile_matrix;
     tile_matrix canvas_;
     
     void createEmptyTiles(int canvas_width, int canvas_height);
@@ -35,5 +35,7 @@ public:
     TextureRenderer(Interpreter* );
     ~TextureRenderer();
 };
+
+}
 
 #endif

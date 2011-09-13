@@ -1,6 +1,8 @@
 #ifndef SKITTLE_COLOR
 #define SKITTLE_COLOR
 
+namespace skittle {
+
 class Color {
 
 public:
@@ -25,4 +27,7 @@ private:
     int g;
     int b;
 };
+
+}
+
 #endif

@@ -5,7 +5,7 @@
 #include "Color.h"
 #include "Renderer.h"
 
-using namespace std;
+namespace skittle {
 
 class Interpreter;
 
@@ -18,5 +18,7 @@ public:
     //initialization;
     PointRenderer(Interpreter* );
 };
+
+}
 
 #endif

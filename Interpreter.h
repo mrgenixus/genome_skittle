@@ -2,19 +2,18 @@
 #define SKITTLE_INTERPRETER
 
 #include <vector>
-#include "Color.h"
 #include <string>
+#include "Color.h"
 
-using namespace std;
-
+namespace skittle {
 
 class Interpreter {
 
 protected:
     virtual void calculate();
-    vector<Color>* pxList;
+    std::vector<Color>* pxList;
     
-    string* seq;
+    std::string* seq;
     
     int cached_width;
     int cached_start;
@@ -24,19 +23,19 @@ protected:
 public:
 
     struct params {
-        string* seq;
+        std::string* seq;
         int width;
         int start;
         int scale;
         int display_size;
     };
     
-    Interpreter(string* _seq, int width, int start, int scale, int display_size);
+    Interpreter(std::string* _seq, int width, int start, int scale, int display_size);
     Interpreter(params);
     ~Interpreter();
     
     //update method
-    bool update(int, int, int, int, string* seq = 0);
+    bool update(int, int, int, int, std::string* seq = 0);
     bool update(params);
     
     int getWidth();
@@ -45,7 +44,7 @@ public:
     int getDisplaySize();
 
     //length accessor
-    size_t getPxLenght();
+    size_t getPxLength();
     size_t size();
     
     //index accessors
@@ -54,13 +53,12 @@ public:
     const Color getPxAt(int);
     
     //vector accessor (efficient/immutable)
-    const vector<Color>* getPx();
+    const std::vector<Color>* getPx();
     
     //vector accessor (innefficient/Mutable copy); //we should probably not allow this: it copies a ton of memory.
-    vector<Color> copyPX();
-    
-
-    
+    std::vector<Color> copyPX();
 };
+
+}
 
 #endif

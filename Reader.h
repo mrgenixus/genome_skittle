@@ -5,16 +5,16 @@
 #include <string>
 #include <fstream>
 
-using namespace std;
+namespace skittle {
 
 class Reader {    
     
 public:
 
-    Reader(string filename);
+    Reader(std::string filename);
     ~Reader();
     
-    Reader& operator>>(string&);
+    Reader& operator>>(std::string&);
     static const int BlockSize = 500000;
     
     bool eof();
@@ -27,14 +27,16 @@ public:
 
 protected:
 
-    streamsize fileSize;
+    std::streamsize fileSize;
     
 private:
 
     int progress;
     bool done;
-    ifstream wordFile;
+    std::ifstream wordFile;
     
 };
+
+}
 
 #endif

@@ -1,6 +1,9 @@
 #include "Interpreter.h"
 #include <map>
 
+using namespace std;
+using namespace skittle;
+
 Interpreter::Interpreter(string* _seq, int width, int start, int scale, int display_size){
     pxList = new vector<Color>;
     update(width, start, scale, display_size, _seq);
@@ -31,11 +34,11 @@ bool Interpreter::update(params input){
     return update(input.width, input.start, input.scale, input.display_size, input.seq);
 }
 //length accessor
-size_t Interpreter::getPxLenght(){
+size_t Interpreter::getPxLength(){
     return pxList->size();
 }
 size_t Interpreter::size(){ 
-    return getPxLenght();
+    return getPxLength();
 }
 
 //index accessors

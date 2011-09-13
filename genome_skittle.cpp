@@ -1,14 +1,13 @@
-
 #include <stdlib.h>
 #include <iostream>
 #include <vector>
 #include <string>
-
-using namespace std;
-
 #include "Reader.h"
 
-int main(int argc, char *argv[]){
+using namespace std;
+using namespace skittle;
+
+int main(int argc, char *argv[]) {
 
     string sequence;
     if (argc > 1) {

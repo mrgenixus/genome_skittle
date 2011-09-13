@@ -4,6 +4,9 @@
 #include <QtOpenGL>
 #include <stdlib.h>
 
+using namespace std;
+using namespace skittle;
+
 /**
  * Renderer should setup a graph based on a colorlist and some other 
  * details.  We're kindof going to assume everyone else has either done 

@@ -4,6 +4,9 @@
 #include <fstream>
 #include <vector>
 
+using namespace std;
+using namespace skittle;
+
 Reader::Reader(string filename) {
     
     progress = 0;

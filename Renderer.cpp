@@ -4,6 +4,9 @@
 #include <QtOpenGL/QGLWidget>
 #include <stdlib.h>
 
+using namespace std;
+using namespace skittle;
+
 // main constructor
 // should be called if your glWidget supports textures
 /**
