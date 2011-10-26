@@ -7,35 +7,35 @@
 
 namespace skittle {
 
-class Reader {    
-    
-public:
+	class Reader {    
+		
+	public:
 
-    Reader(std::string filename);
-    ~Reader();
-    
-    Reader& operator>>(std::string&);
-    static const int BlockSize = 500000;
-    
-    bool eof();
-    bool is_complete();
-    void setComplete();
-    void setIncomplete();
-        
-    int getProgress();
-    void setProgress(int);
+		Reader(std::string filename);
+		~Reader();
+		   
+		Reader& operator>>(std::string&);
+		static const int BlockSize = 500000;
+		
+		bool eof();
+		bool is_complete();
+		void setComplete();
+		void setIncomplete();
+			
+		int getProgress();
+		void setProgress(int);
 
-protected:
+	protected:
 
-    std::streamsize fileSize;
-    
-private:
-
-    int progress;
-    bool done;
-    std::ifstream wordFile;
-    
-};
+		std::streamsize fileSize;
+		
+	private:
+		
+		int progress;
+		bool done;
+		std::ifstream wordFile;
+		
+	};
 
 }
 

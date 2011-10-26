@@ -12,7 +12,6 @@ INCLUDEPATH += .
 HEADERS += Color.h \
            Interpreter.h \
            Manipulator.h \
-           PointRenderer.h \
            Reader.h \
            Renderer.h \
            Sequence.h \

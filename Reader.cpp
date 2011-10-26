@@ -42,8 +42,18 @@ Reader& Reader::operator>>(string& sequence) {
     setProgress(min(progress,int(wordFile.tellg())));
 
     char *s = &buffer[0];
+    char current = '\0';
     while (*s != '\0' ) {
-        sequence.push_back(char(toupper(*s)));
+		current = char(toupper(*s));
+        if(
+			current == 'A' || 
+			current == 'G' ||
+			current == 'C' ||
+			current == 'T'
+			
+		){
+			sequence.push_back(current);
+		}
         ++s;
     }
 

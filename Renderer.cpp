@@ -18,17 +18,27 @@ using namespace skittle;
  **/
 
 Renderer::Renderer(Interpreter* abstractGraph){
-    colors_ = abstractGraph;
+	colors_ = interpreters();
     enableTextures_ = false;
+    push_back(abstractGraph);
 }
 
-bool Renderer::rebind(Interpreter* abstractGraph){
-    if (abstractGraph != colors_){
-        colors_ = abstractGraph;
-        return true;
-    }
+bool Renderer::push_back(Interpreter* abstractGraph){
+	interpreters::iterator iter;
+	bool replaced = false; 
+	for ( iter=colors_.begin() ; iter < colors_.end(); iter++) {
+		if( *iter == abstractGraph ) {
+			colors_.erase(iter);
+			replaced = true;
+		}
+	}
+    colors_.push_back(abstractGraph);
     
-    return false;
+    return replaced;
+}
+
+void Renderer::pop_back(){
+	return colors_.pop_back();
 }
 
 bool Renderer::refresh(){
@@ -36,5 +46,11 @@ bool Renderer::refresh(){
 }
 
 bool Renderer::render(){
-    return refresh();
+	interpreters::iterator iter;
+	for ( iter=colors_.begin() ; iter < colors_.end(); iter++) {
+		current_ = *iter;
+		refresh();
+		draw();
+	}
+    return true;
 }

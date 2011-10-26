@@ -48,7 +48,6 @@ SOURCES       = Color.cpp \
 		genome_skittle.cpp \
 		Interpreter.cpp \
 		Manipulator.cpp \
-		PointRenderer.cpp \
 		Reader.cpp \
 		Renderer.cpp \
 		Sequence.cpp \
@@ -58,7 +57,6 @@ OBJECTS       = Color.o \
 		genome_skittle.o \
 		Interpreter.o \
 		Manipulator.o \
-		PointRenderer.o \
 		Reader.o \
 		Renderer.o \
 		Sequence.o \
@@ -222,12 +220,6 @@ Interpreter.o: Interpreter.cpp Interpreter.h \
 
 Manipulator.o: Manipulator.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Manipulator.o Manipulator.cpp
-
-PointRenderer.o: PointRenderer.cpp PointRenderer.h \
-		Color.h \
-		Renderer.h \
-		Interpreter.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o PointRenderer.o PointRenderer.cpp
 
 Reader.o: Reader.cpp Reader.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Reader.o Reader.cpp
