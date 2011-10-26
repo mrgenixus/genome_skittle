@@ -6,6 +6,7 @@ namespace skittle {
 class Color {
 
 public:
+    Color():r(0), g(0), b(0) { };
     Color(int, int, int);
     
     void setRed(int);
