@@ -1,0 +1,47 @@
+#ifndef SKITTLE_GL_LAYOUT
+#define SKITTLE_GL_LAYOUT
+
+#include <QtOpenGL/QGLWidget>
+
+
+
+namespace skittle {
+
+	class GLLayout : public QGLWidget {
+		
+		int width_;
+		int height_;
+		int margin_;
+		void init();
+		
+#ifdef SKITTLE_GL_LAYOUT_SCROLL
+		int scrollX_;
+		int scrollY_;
+#endif		
+		
+	public:
+		GLLayout(int width, int height, int margin = 5);
+		~GLLayout();
+		
+		GLLayout* addView(Renderer* );
+		
+		void setMargin(int margin);
+		
+#ifdef SKITTLE_GL_LAYOUT_RESIZE		
+		void resize(width, height);
+		int getWidth();
+		int getHeight();
+#endif
+
+#ifdef SKITTLE_GL_LAYOUT_SCROLL		
+		int scrollX(int dX);
+		int scrollY(int dY);
+		int getScrollX();
+		int getScrollY();
+#endif
+
+	};
+
+}
+
+#endif

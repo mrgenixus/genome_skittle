@@ -31,6 +31,8 @@ namespace skittle {
 		//this is the default renderer function, called by render
 		bool refresh();
         int draw(); //returns width;
+        
+        
 	public:
 		TextureRenderer(Interpreter* );
 		~TextureRenderer();

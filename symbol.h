@@ -1,9 +1,19 @@
+#ifndef SKITTLE_SYMBOL
+#define SKITTLE_SYMBOL
+
+#include <stdlib.h>
+#include <vector>
+#include <map>
+
 namespace skittle {
+	
+	using namespace std; 
+	
 	template <class T> class symbol{
 		
 	private: 
 		static map<T,int> my_values;
-		static bool read_only = false;
+		static bool read_only;
 		
 		static int add_value(T value){
 			if ( ! is_locked() ){
@@ -24,15 +34,8 @@ namespace skittle {
 		
 	public:
 
-		symbol(){}
+		symbol() {} //: read_only(false){}
 			
-		symbol(const vector<T>& full_set){
-			typename vector<T>::iterator it;
-			for (it = full_set.begin(), it != end(), it++)
-				add_value(*it);
-				
-			lock();
-		}
 		
 		int operator()(T value){
 			return add_value(value);
@@ -74,7 +77,9 @@ namespace skittle {
 			if(! is_locked()) my_values[value] = sym;
 		}
 	};
-
+	
 	template <class T> map<T,int> symbol<T> ::my_values;
-	template <class T> bool symbol<T>::read_only;
+	template <class T> bool symbol<T>::read_only = false;
 }
+
+#endif

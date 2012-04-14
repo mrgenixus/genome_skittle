@@ -1,0 +1,21 @@
+#include "GLLayout.h"
+
+using namespace std
+using namespace skittle
+
+GLLayout:GLLayout(int width, int height, int margin)
+	: width_(width), height_(height), margin_(margin) 
+{
+	init();
+}
+
+GLLayout::~GLLayout(){
+	clear out all the the gl stuff
+}
+
+GLLayout* GLLayout::addView(Renderer* view, int width){
+	//view->//getstuff, render it
+	setGLCursorAtX(width + margin_);
+	
+	return this;
+}i
