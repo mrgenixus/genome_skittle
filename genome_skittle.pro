@@ -10,15 +10,15 @@ INCLUDEPATH += .
 
 # Input
 HEADERS += Color.h \
-           colortable.h \
            Interpreter.h \
            Manipulator.h \
            Reader.h \
            Renderer.h \
            Sequence.h \
-           TextureRenderer.h
+           TextureRenderer.h \
+    ColorTable.h \
+    ColorRangeTable.h
 SOURCES += Color.cpp \
-           colortable.cpp \
            ErroringFacility.cpp \
            genome_skittle.cpp \
            Interpreter.cpp \
@@ -27,4 +27,6 @@ SOURCES += Color.cpp \
            Reader.cpp \
            Renderer.cpp \
            Sequence.cpp \
-           TextureRenderer.cpp
+           TextureRenderer.cpp \
+    ColorTable.cpp \
+    ColorRangeTable.cpp

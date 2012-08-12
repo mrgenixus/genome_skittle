@@ -3,7 +3,7 @@
 #include <vector>
 #include <string>
 #include "Reader.h"
-#include "NucleotideInterpreter.h"
+//#include "NucleotideInterpreter.h"
 #include "TextureRenderer.h"
 #include "PointRenderer.h"
 
