@@ -1,5 +1,6 @@
 #include "colortable.h"
 #include <map>
+#include "assert.h"
 #include "Color.h"
 
 using namespace std;
@@ -45,6 +46,19 @@ ColorTable::ColorTable()
     currentColors[ (int)'N' ] = Color( 50, 50, 50);//not sequenced*/
 }
 
+Color ColorTable::getColor(int index) {
+    map<int, Color>::iterator it;
+    it = currentColors.find(index);
+    if (it != currentColors.end())
+        return it->second;
+    return Color(0,0,0);
+}
+
 Color ColorTable::getColor(char nucleotide) {
-    return currentColors[(int)((unsigned char)nucleotide)];
+    return getColor((int) nucleotide );
+}
+Color ColorTable::mapColor(int index, Color c){
+    Color old_color = getColor(index);
+    currentColors[index] = c;
+    return old_color;
 }

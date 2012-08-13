@@ -1,11 +1,12 @@
 #include "Color.h"
 #include <algorithm>
+#include <iostream>
 
 using namespace std;
 using namespace skittle;
 
 Color::Color(int red, int green, int blue) {
-    r = red; g = green; b = blue;
+    setRed(red);setGreen(green);setBlue(blue);
 }
 
 bool Color::operator == (const Color other)
@@ -28,6 +29,7 @@ Color Color::operator * (const float mul)
 {
     return Color( min(255, (int)(float(r)*mul+.5)), min(255, (int)(float(g)*mul+.5)), min(255, (int)(float(b)*mul+.5)) );
 }
+
 int Color::lightness()
 {
     int a = max(r, g);
@@ -44,12 +46,12 @@ void Color::setBlue(int blue){
     b = min(255,blue);
 }
 
-int Color::getRed(){
+int Color::getRed() const{
     return r;
 }
-int Color::getGreen(){
+int Color::getGreen() const{
     return g;
 }
-int Color::getBlue(){
+int Color::getBlue() const{
     return b;
 }

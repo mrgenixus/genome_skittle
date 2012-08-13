@@ -6,6 +6,8 @@
 //#include "NucleotideInterpreter.h"
 #include "TextureRenderer.h"
 #include "PointRenderer.h"
+#include "ColorTable.h"
+#include "Color.h"
 
 
 using namespace std;
@@ -40,7 +42,16 @@ int displayFile(string filename){
 
 int main(int argc, char *argv[]) {
 
-    if (argc > 1) return displayFile(argv[1]);
-    
+    //if (argc > 1) return displayFile(argv[1]);
+    ColorTable *ct = new ColorTable;
+
+    cout << "A: " << ct->getColor('A') << endl;
+    cout << "B: " << ct->getColor('B') << endl;
+    cout << "C: " << ct->getColor('C') << endl;
+    ct->mapColor('B',Color(0,0,5000));
+    cout << "A: " << ct->getColor('A') << endl;
+    cout << "B: " << ct->getColor('B') << endl;
+    cout << "C: " << ct->getColor('C') << endl;\
+
     return 0;
 }
